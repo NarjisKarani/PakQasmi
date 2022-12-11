@@ -90,35 +90,6 @@ app.post('/register', (req, res) => {
 //   res.send('ok');
 // });
 
-// app.post('/register',upload.single('image'),(req, res) => {
-//   console.log(JSON.stringify(req.file));
-//   const member=new Member({
-//     name: req.body.name,
-//     fathername: req.body.fathername,
-//     gender: req.body.gender,
-//     email: req.body.email,
-//     password: req.body.password,
-//     bloodgroup: req.body.bloodgroup,
-//     cnic: req.body.cnic,
-//     dob: req.body.dob,
-//     address: req.body.address,
-//     education: req.body.education,
-//     city: req.body.city,
-//     occupation: req.body.occupation,
-//     mobilenumber: req.body.mobilenumber,
-//     emergencycontact: req.body.emergencycontact,
-//     emergencyrelation: req.body.emergencyrelation,
-//     // image: req.file.filename
-//     image: "xyz",
-//   });
-//   member.save(member).then((data)=>{
-//     console.log("member test working" + data);
-//     return res.send(data);
-//   })
-//   console.log(req.body);
-//   console.log("Member registered")
-// });
-
 //UPDATE
 // app.post('/memberupdate', (req, res) =>{
 //     Member.findByIdAndUpdate(req.body._id, 
