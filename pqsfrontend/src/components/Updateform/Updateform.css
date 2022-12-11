@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 18px;
+  background-color: #f0f0f0;
+}
+body .applyjob {
+  margin-bottom: 50px;
+}
+body .applyjob h1 {
+  color: black;
+}
+body .applyjob h2.glass {
+  margin-top: 0%;
+}
+div.form-box {
+  width: 85%;
+  margin: auto;
+}
+div.form-box form .form-fields {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.form-box form {
+  padding: 20px 30px;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+div.form-box form .form-fields div.field-block:nth-child(odd) {
+  margin-right: 4%;
+}
+div.form-box form div.field-block {
+  width: 48%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+div.form-box form div.submit-btn input {
+  width: 200px;
+  border-radius: 50px;
+  border: 2px solid royalblue;
+  background-color: royalblue;
+  color: white;
+  padding: 10px;
+  font-size: 1.1rem;
+  margin-top: 25px;
+  cursor: pointer;
+}
+div.form-box form div.submit-btn input:hover {
+  transition: all 0.3s;
+  color: royalblue;
+  font-weight: 500;
+  background-color: white;
+
+}
+div.form-box form div.field-block label {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+div.form-box form div.field-block input,
+div.form-box form div.field-block select {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+/* media query */
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 676px) {
+  div.form-box form .form-fields div.field-block:nth-child(odd) {
+    margin-right: 0;
+  }
+  div.form-box form div.field-block {
+    width: 100%;
+  }
+  div.form-box form div.submit-btn input {
+    width: 40%;
+  }
+}
+
+/* Sualeha Css */
+
+.applyjob > div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ball {
+  text-align: center;
+}
+.form {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 50px !important;
+}
+.book > h2 {
+  font-size: 30px;
+  margin-bottom: 70px;
+}
+.img {
+  width: 250px;
+  height: 250px;
+}

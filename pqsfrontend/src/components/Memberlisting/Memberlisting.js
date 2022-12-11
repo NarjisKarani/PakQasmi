@@ -5,15 +5,6 @@ import "./Memberlisting.css";
 
 const Memberlisting = ({ members }) => {
   const history = useHistory();
-  // const [searchname, setSearchname] = useState('');
-  // console.log(members);
-  // const history = useHistory();
-  // let abc = history?.location?.state[0];
-  // function candidate(candidateemail) {
-  //   return candidateemail.email === abc?.email??'';
-  // }
-  // const candidatearray = [members.find(candidate)];
-  // console.log(candidatearray);
   return (
     <div className="new">
       <h1>Member Listing</h1>
@@ -23,9 +14,8 @@ const Memberlisting = ({ members }) => {
             <th>Name</th>
             <th>Father Name</th>
             <th>Group</th>
-            <th>DOB</th>
             <th>Mobile Number</th>
-            {/* <th>Click for Details</th> */}
+            <th>Action</th>
             {/* <th>Click to Delete</th> */}
           </tr>
         </thead>
@@ -33,11 +23,11 @@ const Memberlisting = ({ members }) => {
           {members.map((member, key) => {
             return (
               <tr key={key}>
-                <td className="member"><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>{member.name}</Link></td>
+                <td className="member">{member.name}</td>
                 <td className="member">{member.fathername}</td>
                 <td className="member">{member.group}</td>
-                <td className="member">{member.dob}</td>
                 <td className="member">{member.mobilenumber}</td>
+                <td className="member"><button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Details</Link></button></td>
                 {/* <td className="member">
                 <Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Details</Link>
                 </td> */}

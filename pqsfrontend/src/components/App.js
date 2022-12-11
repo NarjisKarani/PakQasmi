@@ -33,7 +33,7 @@ import useFetch from '../custom-hooks/useFetch'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 
 function App() {
-  const {memberdata:members, isLoading, errMessage, deleteMember} = useFetch("http://localhost:8500/members");
+  const {memberdata:members, isLoading, errMessage, deleteMember, updateMember} = useFetch("http://localhost:8500/members");
   // const {userdata:users, deleteUserdata} = useFetch("http://localhost:5000/userlist");
   // const {postdata:posts, deletePostdata} = useFetch("http://localhost:5000/posts");
   // const {girlsdata:girlsdata} = useFetch("http://localhost:5000/girlslist");

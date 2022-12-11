@@ -1,11 +1,10 @@
 import { useState } from "react"; 
 import { Link, useHistory } from 'react-router-dom';
-import "./Register.css";
 // import Url from '../../Url';
 // import pqslogo from '../pqslogo.png';
-import './Register.css';
+import './Updateform.css';
 
-const Register = () => {
+const Updateform = () => {
   const [name, setName] = useState("");
   const [fathername, setFathername] = useState("");
   const [address, setAddress] = useState("");
@@ -46,7 +45,7 @@ const Register = () => {
             const user = {name, fathername, group, email, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergencyrelation}
             console.log("user added");
             console.log(JSON.stringify(user));
-            fetch(`http://localhost:8500/register`,
+            fetch(`http://localhost:8500/updateform`,
             {
                 mode: 'cors',
                 method: 'POST',
@@ -55,7 +54,7 @@ const Register = () => {
                 body: JSON.stringify(user),
             }).then((response)=>{
                 history.push('/');
-                // // window.location.reload();
+                window.location.reload();
             })
         }}
         >
@@ -101,11 +100,6 @@ const Register = () => {
               </select>
             </div>
 
-            {/* <div className="field-block">
-                <label for="password">Password</label>
-                <input type="password" id="password" className="password" onChange={(e)=>setPasswod(e.target.value)}/>
-              </div> */}
-
             <div className="field-block">
               <label for="mobilenumber">Mobile Number</label>
               <input type="number" id="mobilenumber" name="mobilenumber" className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
@@ -148,26 +142,6 @@ const Register = () => {
                 <option value="O-">O-</option>
               </select>
             </div> 
-
-            {/* <div className="field-block">
-                <label for="image">Upload image</label>
-                <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.value)}/>
-                <button><Link onClick={(e)=>{ 
-                  image ={image}
-                  fetch(`http://localhost:8500/upload`,
-                  {
-                      mode: 'cors',
-                      method: 'POST',
-                      enctype: 'multipart/form-data',
-                      headers: { 'Content-Type':'application/json' },
-                      // body: JSON.stringify(image),
-                  }).then((response)=>{
-                     console.log('image upload')
-                      // history.push('/');
-                      // // window.location.reload();
-                  })
-                 }}>Upload</Link></button>
-            </div> */}
 
             <div className="field-block">
               <label for="education">Education</label>
@@ -213,4 +187,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Updateform;

@@ -119,18 +119,32 @@ app.post('/register', (req, res) => {
 //   console.log("Member registered")
 // });
 
-//UPDATE
-// app.post('/memberupdate', (req, res) =>{
-//     Member.findByIdAndUpdate(req.body._id, 
-//       {$set: {req.body}}, 
-//       (err, result) => {
-//         if (err) 
-//           throw err;
-//         console.log('User updated!');
-//         res.redirect('/');
-//       }
-//     );
-//   });
+// UPDATE
+app.post('/updateform', (req, res) =>{
+    Member.findByIdAndUpdate(req.body._id, 
+      {$set: {'name': req.body.name, 
+              'fathername': req.body.fathername,
+              'gander': req.body.gander,
+              'group': req.body.group,
+              'cnic': req.body.cnic,
+              'city': req.body.city,
+              'address': req.body.address,
+              'mobilenumber': req.body.mobilenumber,
+              'registrationnumber': req.body.registrationnumber,
+              'occupation': req.body.occupation,
+              'education': req.body.education,
+              'bloodgroup': req.body.bloodgroup,
+              'emergencycontact': req.body.emergencycontact,
+              'emergencyrelation': req.body.emergencyrelation,
+              'email': req.body.email}}, 
+      (err, result) => {
+        if (err) 
+          throw err;
+        console.log('User updated!');
+        res.redirect('/');
+      }
+    );
+  });
   
 
 //DELETE

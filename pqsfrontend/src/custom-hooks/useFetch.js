@@ -6,6 +6,9 @@ const useFetch = (url)=>{
     const [errMessage, setErrorMessage] = useState(null);
     const deleteMember = (id)=>{
       setMemberdata(memberdata.filter(item=>item._id!=id))
+    }; 
+    const updateMember = (id)=>{
+      setMemberdata(memberdata.filter(item=>item._id!=id))
     };   
     
     useEffect(() => {
@@ -24,7 +27,7 @@ const useFetch = (url)=>{
        setIsLoading(false);
      });
     }, [url]);
-    return {memberdata, isLoading, errMessage, deleteMember};    
+    return {memberdata, isLoading, errMessage, deleteMember, updateMember};    
 }
 
 export default useFetch;
