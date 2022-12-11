@@ -8,7 +8,7 @@ const MemberSchema = new Schema({
     gender: {type: String},
     email:    {type: String, validate: [isEmail, 'Enter a valid email address'], lowercase: true,},
     group: {type: String},
-    dob: {type: Number},
+    // dob: {type: Number},
     mobilenumber: {type: Number},
     registrationnumber: {type: Number},
     cnic: {type: Number},
@@ -19,8 +19,13 @@ const MemberSchema = new Schema({
     bloodgroup: {type: String},
     emergencycontact: {type: Number},
     emergencyrelation: {type: String},
-    image: {type: String},
-    documents: {type: String},
+    // image: {type: String, desc: String,
+    //     img:
+    //     {
+    //         data: Buffer,
+    //         contentType: String
+    //     }},
+    // documents: {type: String},
 });
 
 module.exports = mongoose.model('Members', MemberSchema);

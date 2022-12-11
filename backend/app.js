@@ -17,6 +17,17 @@ app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended:false}))
 // app.use(bodyParser.json())
 
+//MULTER
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'public')
+  },
+  filename: function (req, file, cb) {
+    cb(nll, file.originalname);
+  }
+})
+const upload = multer({ storage: storage });
+
 //DATABASE
 const uri = 'mongodb+srv://user-1:NKarani@cluster0.ffupy.mongodb.net/PakQasmi?retryWrites=true&w=majority';
 mongoose.connect(uri).then((result)=>{
@@ -59,7 +70,7 @@ app.get('/members', (req, res) => {
   
 
 //CREATE
-app.post('/member', (req, res) => {
+app.post('/register', (req, res) => {
   console.log(req.body);
   console.log("member created");
   Member.create(req.body).then((data)=>{
@@ -74,6 +85,39 @@ app.post('/member', (req, res) => {
       });
   });
 });
+// app.post('upload',upload.single('image'),(req, res)=> {
+//   console.log(JSON.stringify(req.file));
+//   res.send('ok');
+// });
+
+// app.post('/register',upload.single('image'),(req, res) => {
+//   console.log(JSON.stringify(req.file));
+//   const member=new Member({
+//     name: req.body.name,
+//     fathername: req.body.fathername,
+//     gender: req.body.gender,
+//     email: req.body.email,
+//     password: req.body.password,
+//     bloodgroup: req.body.bloodgroup,
+//     cnic: req.body.cnic,
+//     dob: req.body.dob,
+//     address: req.body.address,
+//     education: req.body.education,
+//     city: req.body.city,
+//     occupation: req.body.occupation,
+//     mobilenumber: req.body.mobilenumber,
+//     emergencycontact: req.body.emergencycontact,
+//     emergencyrelation: req.body.emergencyrelation,
+//     // image: req.file.filename
+//     image: "xyz",
+//   });
+//   member.save(member).then((data)=>{
+//     console.log("member test working" + data);
+//     return res.send(data);
+//   })
+//   console.log(req.body);
+//   console.log("Member registered")
+// });
 
 //UPDATE
 // app.post('/memberupdate', (req, res) =>{

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {useHistory} from "react-router-dom";
+import { useState } from "react"; 
+import { Link, useHistory } from 'react-router-dom';
 import "./Register.css";
 // import Url from '../../Url';
 // import pqslogo from '../pqslogo.png';
@@ -14,12 +14,13 @@ const Register = () => {
   // const [password, setPasswod] = useState('');
   const [gender, setGender] = useState("");
   const [bloodgroup, setBloodgroup] = useState("");
-  const [dob, setDob] = useState("");
+  // const [dob, setDob] = useState("");
   const [occupation, setOccupation] = useState("");
   const [education, setEducation] = useState("");
   const [cnic, setCNIC] = useState("");
   const [group, setGroup] = useState("");
   const [mobilenumber, setMobilenumber] = useState("");
+  // const [image, setImage] = useState("");
   const [registrationnumber, setRegistrationnumber] = useState("");
   const [emergencycontact, setEmergencyContact] = useState("");
   const [emergencyrelation, setEmergencyRelation] = useState("");
@@ -42,10 +43,10 @@ const Register = () => {
         <form
           onSubmit={(e)=>{
             e.preventDefault();
-            const user = {name, fathername, gender, group, email, mobilenumber, registrationnumber, address, cnic, dob, occupation, education, bloodgroup, city, emergencycontact, emergencyrelation}
+            const user = {name, fathername, gender, group, email, mobilenumber, registrationnumber, address, cnic, occupation, education, bloodgroup, city, emergencycontact, emergencyrelation}
             console.log("user added");
             console.log(JSON.stringify(user));
-            fetch(`http://localhost:8500/member`,
+            fetch(`http://localhost:8500/register`,
             {
                 mode: 'cors',
                 method: 'POST',
@@ -84,10 +85,10 @@ const Register = () => {
               <input type="email" id="email" name="email" className="email" onChange={(e) => setEmail(e.target.value)}/>
             </div>
 
-            <div className="field-block">
+            {/* <div className="field-block">
               <label for="dob">DOB</label>
               <input type="date" id="dob" className="dob" onChange={(e) => setDob(e.target.value)}/>
-            </div>
+            </div> */}
 
             <div className="field-block">
               <label for="group">Group</label>
@@ -148,8 +149,23 @@ const Register = () => {
 
             {/* <div className="field-block">
                 <label for="image">Upload image</label>
-                <input type="file" id="image" name="image" accept="image/*" />
-              </div> */}
+                <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.value)}/>
+                <button><Link onClick={(e)=>{ 
+                  image ={image}
+                  fetch(`http://localhost:8500/upload`,
+                  {
+                      mode: 'cors',
+                      method: 'POST',
+                      enctype: 'multipart/form-data',
+                      headers: { 'Content-Type':'application/json' },
+                      // body: JSON.stringify(image),
+                  }).then((response)=>{
+                     console.log('image upload')
+                      // history.push('/');
+                      // // window.location.reload();
+                  })
+                 }}>Upload</Link></button>
+            </div> */}
 
             <div className="field-block">
               <label for="education">Education</label>
