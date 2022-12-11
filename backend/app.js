@@ -29,23 +29,15 @@ mongoose.connect(uri).then((result)=>{
 app.get('/members', (req, res) => {
     Member.find().then((data)=>{
         // console.log(data);
-        console.log("memberlist working");
+        // console.log("memberlist working");
+        console.log('ok');
         res.send(data);
     }).catch((err)=>{
         res.send(err.message);
     });
 });
-// app.get('/userlistsearch', (req, res) => {
-//       console.log(req.body.searchname)
-//       Member.findOne({name: req.body.searchname}).then((data)=>{
-//           console.log("searchname worked");
-//           res.send(data);
-//       }).catch((err)=>{
-//           res.send(err.message);
-//       });
-// });
 
-// app.get('/girlslist', (req, res) => {
+// app.get('/girlslisting', (req, res) => {
 //     Member.find({'gender': 'Female'}).then((data)=>{
 //         // console.log(data);
 //         console.log("girl's list working");
@@ -55,7 +47,7 @@ app.get('/members', (req, res) => {
 //     });
 // });
   
-// app.get('/boyslist', (req, res) => {
+// app.get('/boyslistings', (req, res) => {
 //     Member.find({'gender': 'Male'}).then((data)=>{
 //         // console.log(data);
 //         console.log("boy's list working");
@@ -68,19 +60,19 @@ app.get('/members', (req, res) => {
 
 //CREATE
 app.post('/member', (req, res) => {
-    console.log(req.body);
-    console.log("member created");
-    Member.create(req.body).then((data)=>{
-      res.send({
-        error:null,
-        status:true,
-      });
-    }).catch((err)=>{
-        res.send({
-          error:true,
-          message:err.message,
-        });
+  console.log(req.body);
+  console.log("member created");
+  Member.create(req.body).then((data)=>{
+    res.send({
+      error:null,
+      status:true,
     });
+  }).catch((err)=>{
+      res.send({
+        error:true,
+        message:err.message,
+      });
+  });
 });
 
 //UPDATE
@@ -98,7 +90,7 @@ app.post('/member', (req, res) => {
   
 
 //DELETE
-app.delete('/member/:id', (req, res) => {
+app.delete('/individualpage/:id', (req, res) => {
     Member.findByIdAndDelete(req.params.id).then((res)=>{
         console.log('Worked');
       res.json({
