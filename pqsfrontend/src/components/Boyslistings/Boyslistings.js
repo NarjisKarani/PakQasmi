@@ -16,6 +16,7 @@ const Boyslistings = ({ boys, deleteMember }) => {
       <table>
         <thead>
           <tr>
+            <th>Registration Number</th>
             <th>Name</th>
             <th>Father Name</th>
             <th>Group</th>
@@ -27,6 +28,7 @@ const Boyslistings = ({ boys, deleteMember }) => {
           {boys.map((boy, key) => {
             return (
               <tr key={key}>
+                <td className="member">{boy.registrationnumber}</td>
                 <td className="member">{boy.name}</td>
                 <td className="member">{boy.fathername}</td>
                 <td className="member">{boy.group}</td>

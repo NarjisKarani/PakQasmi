@@ -173,12 +173,12 @@ const Updateform = (props) => {
             </div>
 
             <div className="field-block">
-              <label for="emergency">Name (emergency)</label>
+              <label for="emergency">Emergency Contact (name)</label>
               <input type="text" id="emergency" value={emergency} name="emergency" className="emergency" onChange={(e) => setEmergency(e.target.value)}/>
             </div>
 
             <div className="field-block">
-              <label for="emergencycontact">Emergency Contact</label>
+              <label for="emergencycontact">Emergency Contact Number</label>
               <input type="number" id="emergencycontact" value={emergencycontact} name="emergencycontact" className="emergencycontact" onChange={(e) => setEmergencyContact(e.target.value)}/>
             </div>
 

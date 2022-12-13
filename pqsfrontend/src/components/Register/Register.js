@@ -66,6 +66,7 @@ const Register = () => {
             <div className="field-block">
               <label for="name">Full Name</label>
               <input type="text" id="name" className="name" name="name" onChange={(e) => setName(e.target.value)}/>
+              <input type="hidden" value="Admin input" id="registrationnumber" name="registrationnumber" className="registrationnumber" onChange={(e) => setRegistrationnumber(e.target.value)}/>
             </div>
 
             <div className="field-block">
@@ -99,18 +100,18 @@ const Register = () => {
             </div>
             <div className="field-block">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" className="email" onChange={(e) => setEmail(e.target.value)}/>
+              <input type="email" id="email" name="email" placeholder="xyz@example.com" className="email" onChange={(e) => setEmail(e.target.value)}/>
             </div>
 
             <div className="field-block">
               <label for="mobilenumber">Mobile Number</label>
-              <input type="number" id="mobilenumber" name="mobilenumber" className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
+              <input type="number" min="11" max="11" placeholder="03000000000" id="mobilenumber" name="mobilenumber" className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
             </div>
 
-            <div className="field-block">
-              <label for="registrationnumber">Registration Number</label>
-              <input type="number" id="registrationnumber" name="registrationnumber" className="registrationnumber" onChange={(e) => setRegistrationnumber(e.target.value)}/>
-            </div>
+            {/* <div className="field-block">
+              <label for="registrationnumber">Registration Number</label> */}
+              {/* <input type="hidden" value="Admin input" id="registrationnumber" name="registrationnumber" className="registrationnumber" onChange={(e) => setRegistrationnumber(e.target.value)}/> */}
+            {/* </div> */}
 
             <div className="field-block">
               <label for="cnic">CNIC Number</label>
@@ -191,12 +192,12 @@ const Register = () => {
             </div>
 
             <div className="field-block">
-              <label for="emergency">Name (emergency)</label>
+              <label for="emergency">Emergency Contact (name)</label>
               <input type="text" id="emergency" name="emergency" className="emergency" onChange={(e) => setEmergency(e.target.value)}/>
             </div>
 
             <div className="field-block">
-              <label for="emergencycontact">Emergency Contact</label>
+              <label for="emergencycontact">Emergency Contact Number</label>
               <input type="number" id="emergencycontact" name="emergencycontact" className="emergencycontact" onChange={(e) => setEmergencyContact(e.target.value)}/>
             </div>
 

@@ -11,7 +11,7 @@ const MemberSchema = new Schema(
         group: {type: String, required: true},
         dob: {type: Date, required: true},
         mobilenumber: {type: Number, required: true},
-        registrationnumber: {type: Number, required: true},
+        registrationnumber: {type: Number},
         cnic: {type: Number, required: true},
         address: {type: String, required: true},
         city: {type: String, default: 'Karachi', required: true},

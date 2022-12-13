@@ -49,7 +49,7 @@ app.get('/members', (req, res) => {
 app.get('/girlslisting', (req, res) => {
     Member.find({'gender': 'Female'}).then((data)=>{
         // console.log(data);
-        console.log("Girl's list");
+        // console.log("Girl's list");
         res.send(data);
     }).catch((err)=>{
         res.send(err.message);
@@ -59,7 +59,7 @@ app.get('/girlslisting', (req, res) => {
 app.get('/boyslistings', (req, res) => {
   Member.find({'gender': 'Male'}).then((data)=>{
       // console.log(data);
-      console.log("Boy's list");
+      // console.log("Boy's list");
       res.send(data);
   }).catch((err)=>{
       res.send(err.message);
@@ -68,7 +68,7 @@ app.get('/boyslistings', (req, res) => {
 
 //CREATE
 app.post('/register', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   console.log("Created");
   Member.create(req.body).then((data)=>{
     res.send({
