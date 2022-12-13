@@ -120,7 +120,7 @@ function App() {
               </Route> */}
   
               <Route exact path="/individualpage">
-                {members && <Individualpage members={members} deleteMember={deleteMember}/>}
+                {members && <Individualpage members={members} deleteMember={deleteMember} updateMember={updateMember}/>}
               </Route>
 
               <Route exact path="/IDCard">

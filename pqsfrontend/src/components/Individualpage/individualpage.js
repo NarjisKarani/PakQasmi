@@ -35,24 +35,24 @@ const Individualpage = ({members}) => {
           <div className='cdreq4'>Documents: {member.documents}</div>
           <button><Link onClick={(e)=>{ history.push({pathname: '/IDCard', state: [{email: member.email}]}) }}>Generate ID Card</Link></button>
           <button><Link onClick={(e)=>{ history.push({pathname: '/card', state: [{email: member.email}]}) }}>Card</Link></button>
-          <button><Link onClick={(e)=>{ history.push({pathname: '/updateform', state: [{
-                                                        id: member._id,
-                                                        name: member.name, 
-                                                        fathername: member.fathername, 
-                                                        address: member.address, 
-                                                        education: member.education,
-                                                        city: member.city, 
-                                                        email: member.email, 
-                                                        gender: member.gender,
-                                                        bloodgroup: member.bloodgroup, 
-                                                        occupation: member.occupation, 
-                                                        cnic: member.cnic,
-                                                        group: member.group,
-                                                        mobilenumber: member.mobilenumber,
-                                                        registrationnumber: member.registrationnumber, 
-                                                        emergencycontact: member.emergencycontact, 
-                                                        emergencyrelation: member.emergencyrelation
-                                                    }]}) }}>Update</Link></button>
+          <button><Link onClick={(e)=>{ history.push({pathname: '/updateform', state: [{ 
+                                                            id: member._id, 
+                                                            name: member.name,
+                                                            fathername: member.fathername,
+                                                            gender: member.gender,
+                                                            group: member.group,
+                                                            cnic: member.cnic,
+                                                            registrationnumber: member.registrationnumber,
+                                                            mobilenumber: member.mobilenumber,
+                                                            address: member.address,
+                                                            city: member.city,
+                                                            email: member.email,
+                                                            education: member.education,
+                                                            occupation: member.occupation,
+                                                            bloodgroup: member.bloodgroup,
+                                                            emergencycontact: member.emergencycontact,
+                                                            emergencyrelation: member.emergencyrelation,
+                                                            }]}) }}>Update</Link></button>
           <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back to listing</Link></button>
           {/* <button><Link onClick={(e)=>{ history.push({pathname: '/memberlist'}) }}>Delete</Link></button>
           <button><Link onClick={(e)=>{ history.push({pathname: '/memberlist'}) }}>Update</Link></button> */}

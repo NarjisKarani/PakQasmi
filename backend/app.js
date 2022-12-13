@@ -104,31 +104,21 @@ app.post('/register', (req, res) => {
 
 // UPDATE
 app.post('/updateform/:id', (req, res) =>{
-    Member.findByIdAndUpdate(req.params.id, 
-      {$set: {'name': req.body.name, 
-              'fathername': req.body.fathername,
-              'gander': req.body.gander,
-              'group': req.body.group,
-              'cnic': req.body.cnic,
-              'city': req.body.city,
-              'address': req.body.address,
-              'mobilenumber': req.body.mobilenumber,
-              'registrationnumber': req.body.registrationnumber,
-              'occupation': req.body.occupation,
-              'education': req.body.education,
-              'bloodgroup': req.body.bloodgroup,
-              'emergencycontact': req.body.emergencycontact,
-              'emergencyrelation': req.body.emergencyrelation,
-              'email': req.body.email}}, 
-      (err, result) => {
-        if (err) 
-          throw err;
-        console.log('User updated!');
-        res.redirect('/');
-      }
-    );
+  Member.findByIdAndUpdate(req.params.id, req.body)
+  .then((res)=>{
+    console.log('Updated');
+    res.json({
+      status:true,
+      message:null,
+    })
+  })
+  .catch((err)=>{
+    res.json({
+      status:false,
+      message:err.message,
+    });
   });
-  
+});
 
 //DELETE
 app.delete('/memberdelete/:id', (req, res) => {

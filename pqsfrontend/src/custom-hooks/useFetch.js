@@ -10,8 +10,8 @@ const useFetch = (url)=>{
       setMemberdata(memberdata.filter(item=>item._id!=id))
     }; 
     const updateMember = (id)=>{
-      setMemberdata(memberdata.filter(item=>item._id!=id))
-    };   
+      setMemberdata(memberdata.filter(item=>item._id!==id))
+    }  
     
     useEffect(() => {
       console.log('Use effect is being used')

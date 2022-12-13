@@ -1,14 +1,16 @@
 import { useState } from "react"; 
 import { Link, useHistory } from 'react-router-dom';
+import "./Updateform.css";
 // import Url from '../../Url';
 // import pqslogo from '../pqslogo.png';
 import './Updateform.css';
 
 const Updateform = (props) => {
+  const history = useHistory();
   let xyz = history?.location?.state[0];
-  const [memberid, setMemberid] = useState(xyz?.id??'');
+  const [id, setId] = useState(xyz?.id??'');
   const [name, setName] = useState(xyz?.name??'');
-  const [fathername, setFathername] = useState(xyz?.fatherame??'');
+  const [fathername, setFathername] = useState(xyz?.fathername??'');
   const [address, setAddress] = useState(xyz?.address??'');
   const [city, setCity] = useState(xyz?.city??'');
   const [email, setEmail] = useState(xyz?.email??'');
@@ -26,9 +28,8 @@ const Updateform = (props) => {
   // const [image, setImage] = useState(xyz?.image??'');
 
   const [isLoading, setIsLoading] = useState(false);
-  const history = useHistory();
+  
   return (
-    
     <div className="applyjob">
       <div>
         {/* <img src={pqslogo} alt="pqslogo" className="img" /> */}
@@ -44,12 +45,10 @@ const Updateform = (props) => {
         <form
           onSubmit={(e)=>{
             e.preventDefault();
-            // const user = {name, fathername, gender, group, email, mobilenumber, registrationnumber, address, cnic, occupation, education, bloodgroup, city, emergencycontact, emergencyrelation}
             const user = {name, fathername, group, email, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergencyrelation}
             console.log("user added");
             console.log(JSON.stringify(user));
-            console.log(memberid);
-            fetch(`http://localhost:8500/updateform/${memberid}`,
+            fetch(`http://localhost:8500/updateform/${id}`,
             {
                 mode: 'cors',
                 method: 'POST',
@@ -57,7 +56,7 @@ const Updateform = (props) => {
                 headers: { 'Content-Type':'application/json' },
                 body: JSON.stringify(user),
             }).then((response)=>{
-                history.push('/individualpage');
+                history.push('/members');
                 window.location.reload();
             })
         }}
@@ -73,7 +72,7 @@ const Updateform = (props) => {
 
             <div className="field-block">
               <label for="fathername">Father/Husband Name</label>
-              <input type="text" id="fathername" value={fathername} className="fathername" onChange={(e) => setFathername(e.target.value)}/>
+              <input type="text" id="fathername" className="fathername" value={fathername} onChange={(e) => setFathername(e.target.value)}/>
             </div>
 
             <div className="field-block">
@@ -85,12 +84,12 @@ const Updateform = (props) => {
             </div>
             <div className="field-block">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" value={email} className="email" onChange={(e) => setEmail(e.target.value)}/>
+              <input type="email" id="email" name="email" className="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
             </div>
 
             {/* <div className="field-block">
               <label for="dob">DOB</label>
-              <input type="date" id="dob" className="dob" value={dob} onChange={(e) => setDob(e.target.value)}/>
+              <input type="date" id="dob" className="dob" onChange={(e) => setDob(e.target.value)}/>
             </div> */}
 
             <div className="field-block">
@@ -106,22 +105,22 @@ const Updateform = (props) => {
 
             <div className="field-block">
               <label for="mobilenumber">Mobile Number</label>
-              <input type="number" id="mobilenumber" value={mobilenumber} name="mobilenumber" className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
+              <input type="number" id="mobilenumber" name="mobilenumber" value={mobilenumber} className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
             </div>
 
             <div className="field-block">
               <label for="registrationnumber">Registration Number</label>
-              <input type="number" id="registrationnumber" value={registrationnumber} name="registrationnumber" className="registrationnumber" onChange={(e) => setRegistrationnumber(e.target.value)}/>
+              <input type="number" id="registrationnumber" name="registrationnumber" value={registrationnumber} className="registrationnumber" onChange={(e) => setRegistrationnumber(e.target.value)}/>
             </div>
 
             <div className="field-block">
               <label for="cnic">CNIC Number</label>
-              <input type="number" id="cnic" name="cnic" value={cnic} className="cnic" onChange={(e) => setCNIC(e.target.value)}/>
+              <input type="number" id="cnic" name="cnic" className="cnic" value={cnic} onChange={(e) => setCNIC(e.target.value)}/>
             </div>
 
             <div className="field-block">
               <label for="address">Address</label>
-              <input type="text" id="address" name="address" value={address} className="address" onChange={(e) => setAddress(e.target.value)}/>
+              <input type="text" id="address" name="address" className="address" value={address} onChange={(e) => setAddress(e.target.value)}/>
             </div>
 
             <div className="field-block">
