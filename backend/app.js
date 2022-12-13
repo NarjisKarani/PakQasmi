@@ -131,9 +131,9 @@ app.post('/updateform/:id', (req, res) =>{
   
 
 //DELETE
-app.delete('/individualpage/:id', (req, res) => {
+app.delete('/memberdelete/:id', (req, res) => {
     Member.findByIdAndDelete(req.params.id).then((res)=>{
-        console.log('Worked');
+        console.log('Delete worked');
       res.json({
         status:true,
         message:null,

@@ -62,6 +62,7 @@ const IDCard = () => {
         </tr>
     </table>
     <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back</Link></button>
+    {/* <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Back</Link></button> */}
     </div>
   )};
 

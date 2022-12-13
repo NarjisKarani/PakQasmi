@@ -47,13 +47,13 @@ const Individualpage = ({members}) => {
                                                         bloodgroup: member.bloodgroup, 
                                                         occupation: member.occupation, 
                                                         cnic: member.cnic,
-                                                        group: member.group, 
+                                                        group: member.group,
                                                         mobilenumber: member.mobilenumber,
                                                         registrationnumber: member.registrationnumber, 
                                                         emergencycontact: member.emergencycontact, 
                                                         emergencyrelation: member.emergencyrelation
                                                     }]}) }}>Update</Link></button>
-          <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back</Link></button>
+          <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back to listing</Link></button>
           {/* <button><Link onClick={(e)=>{ history.push({pathname: '/memberlist'}) }}>Delete</Link></button>
           <button><Link onClick={(e)=>{ history.push({pathname: '/memberlist'}) }}>Update</Link></button> */}
         </div>

@@ -27,7 +27,7 @@ const Card = ({members}) => {
           <p className='cdreq5'>Occupation: {member.occupation}</p>
           <p className='cdreq6'>Mobile number: {member.mobilenumber}</p>
           <p className='cdreq7'>City: {member.city}</p> */}
-          <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back</Link></button>
+          <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Back</Link></button>
         </div>
     })}
     </div>

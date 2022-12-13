@@ -73,12 +73,12 @@ function App() {
               <Route path="/girlslisting">
                 {errMessage && <div>{errMessage}</div>}
                 {isLoading && <div>Loading...</div>}
-                {girls && <Girlslisting girls={girls}/>}
+                {girls && <Girlslisting girls={girls} deleteMember={deleteMember}/>}
               </Route>
               <Route path="/boyslistings">
                 {errMessage && <div>{errMessage}</div>}
                 {isLoading && <div>Loading...</div>}
-                {boys && <Boyslistings boys={boys}/>}
+                {boys && <Boyslistings boys={boys} deleteMember={deleteMember}/>}
               </Route>
 
               {/* <Route path="/posts">

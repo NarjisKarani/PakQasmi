@@ -3,7 +3,7 @@ import React, { useref } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Girlslisting.css";
 
-const Girlslisting = ({ girls }) => {
+const Girlslisting = ({ girls, deleteMember }) => {
   const history = useHistory();
   return (
     <div className="new">
@@ -27,8 +27,25 @@ const Girlslisting = ({ girls }) => {
                 <td className="member">{girl.fathername}</td>
                 <td className="member">{girl.group}</td>
                 <td className="member">{girl.mobilenumber}</td>
-                <td className="member"><button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: girl.email}]}) }}>Details</Link></button></td>
-                <td className="member"><button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: girl.email}]}) }}>Delete</Link></button></td>
+                <td className="member">
+                    <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: girl.email}]}) }}>Details</Link></button>
+                    {/* <button><Link onClick={(e)=>{
+                                            fetch(`http://localhost:8500/memberdelete/${girl._id}`,
+                                            {
+                                              mode: 'cors',
+                                              method: 'DELETE',
+                                              headers: { 'Content-Type': 'application/json' },
+                                              body: JSON.stringify(girl),
+                                            }).then(deleteMember(girl._id), (response)=>{
+                                                history.push('/girlslisting');
+                                                window.location.reload();
+                                            }).catch(err=>{
+                                              console.log(err);
+                                            })
+                                        }}>
+                                        Delete
+                                        </Link></button> */}
+                </td>
                 {/* <td className="member">
                 <Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: girl.email}]}) }}>Details</Link>
                 </td> */}

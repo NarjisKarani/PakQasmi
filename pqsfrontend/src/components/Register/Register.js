@@ -54,8 +54,8 @@ const Register = () => {
                 headers: { 'Content-Type':'application/json' },
                 body: JSON.stringify(user),
             }).then((response)=>{
-                history.push('/');
-                // // window.location.reload();
+                history.push('/register');
+                window.location.reload();
             })
         }}
         >

@@ -3,7 +3,7 @@ import React, { useref } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Memberlisting.css";
 
-const Memberlisting = ({ members }) => {
+const Memberlisting = ({ members, deleteMember }) => {
   const history = useHistory();
   return (
     <div className="new">
@@ -29,13 +29,23 @@ const Memberlisting = ({ members }) => {
                 <td className="member">{member.group}</td>
                 <td className="member">{member.gender}</td>
                 <td className="member">{member.mobilenumber}</td>
-                <td className="member"><button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Details</Link></button></td>
-                {/* <td className="member">
-                <Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Details</Link>
-                </td> */}
-                {/* <td className="member">
-                  <Link onClick={(e)=>{ history.push({pathname: '/memberslisting', state: [{id: user.email}]}) }}>Delete</Link>
-                </td> */}
+                <td className="member">
+                    <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Details</Link></button>
+                    <button><Link onClick={(e)=>{
+                                            fetch(`http://localhost:8500/memberdelete/${member._id}`,
+                                            {
+                                              mode: 'cors',
+                                              method: 'DELETE',
+                                              headers: { 'Content-Type': 'application/json' },
+                                              body: JSON.stringify(member),
+                                            }).then(deleteMember(member._id), (response)=>{
+                                                history.push('/memberlisting');
+                                                window.location.reload();
+                                            }).catch(err=>{
+                                              console.log(err);
+                                            })
+                                        }}> Delete </Link></button>
+                </td>
               </tr>
             );
           })}
