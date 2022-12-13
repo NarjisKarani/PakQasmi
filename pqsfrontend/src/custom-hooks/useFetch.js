@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react';
 
 const useFetch = (url)=>{
     const [memberdata, setMemberdata] = useState(null);
+    const [girlsmemberdata, setGirlsmemberdata] = useState(null);
+    const [boysmemberdata, setBoysmemberdata] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [errMessage, setErrorMessage] = useState(null);
     const deleteMember = (id)=>{
@@ -20,6 +22,8 @@ const useFetch = (url)=>{
         return response.json();
        }).then((response) => {
         setMemberdata(response);
+        setGirlsmemberdata(response);
+        setBoysmemberdata(response);
         setIsLoading(false);
         setErrorMessage(null)
        }).catch((error) => {
@@ -27,7 +31,7 @@ const useFetch = (url)=>{
        setIsLoading(false);
      });
     }, [url]);
-    return {memberdata, isLoading, errMessage, deleteMember, updateMember};    
+    return {memberdata, isLoading, errMessage, girlsmemberdata, boysmemberdata, deleteMember, updateMember};    
 }
 
 export default useFetch;

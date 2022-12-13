@@ -14,14 +14,15 @@ import Register from './Register/Register';
 //Users
 // import User from './User/User';
 import Individualpage from './Individualpage/Individualpage';
+import Updateform from './Updateform/Updateform';
 import IDCard from './IDCard/IDCard';
 import Card from './IDCard/Card';
 
 //Listings
 import Memberlisting from './Memberlisting/Memberlisting';
 // import Userlist from './User/Userlist';
-// import Girlslisting from './Girlslisting/Girlslisting';
-// import Boyslistings from './Boyslistings/Boyslistings';
+import Girlslisting from './Girlslisting/Girlslisting';
+import Boyslistings from './Boyslistings/Boyslistings';
 // import UserlistSearch from './User/Userlistsearch';
 
 // //Posts
@@ -34,6 +35,8 @@ import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 
 function App() {
   const {memberdata:members, isLoading, errMessage, deleteMember, updateMember} = useFetch("http://localhost:8500/members");
+  const {girlsmemberdata:girls} = useFetch("http://localhost:8500/girlslisting");
+  const {boysmemberdata:boys} = useFetch("http://localhost:8500/boyslistings");
   // const {userdata:users, deleteUserdata} = useFetch("http://localhost:5000/userlist");
   // const {postdata:posts, deletePostdata} = useFetch("http://localhost:5000/posts");
   // const {girlsdata:girlsdata} = useFetch("http://localhost:5000/girlslist");
@@ -64,7 +67,18 @@ function App() {
               <Route path="/members">
                 {errMessage && <div>{errMessage}</div>}
                 {isLoading && <div>Loading...</div>}
-                {members && <Memberlisting members={members} deleteMember={deleteMember}/>}
+                {members && <Memberlisting members={members} deleteMember={deleteMember} updateMember={updateMember}/>}
+              </Route>
+
+              <Route path="/girlslisting">
+                {errMessage && <div>{errMessage}</div>}
+                {isLoading && <div>Loading...</div>}
+                {girls && <Girlslisting girls={girls}/>}
+              </Route>
+              <Route path="/boyslistings">
+                {errMessage && <div>{errMessage}</div>}
+                {isLoading && <div>Loading...</div>}
+                {boys && <Boyslistings boys={boys}/>}
               </Route>
 
               {/* <Route path="/posts">
@@ -75,6 +89,10 @@ function App() {
 
               <Route exact path="/register">
                 <Register />
+              </Route>
+
+              <Route exact path="/updateform">
+                <Updateform />
               </Route>
 
               <Route exact path="/login">

@@ -14,6 +14,7 @@ const Memberlisting = ({ members }) => {
             <th>Name</th>
             <th>Father Name</th>
             <th>Group</th>
+            <th>Gender</th>
             <th>Mobile Number</th>
             <th>Action</th>
             {/* <th>Click to Delete</th> */}
@@ -26,6 +27,7 @@ const Memberlisting = ({ members }) => {
                 <td className="member">{member.name}</td>
                 <td className="member">{member.fathername}</td>
                 <td className="member">{member.group}</td>
+                <td className="member">{member.gender}</td>
                 <td className="member">{member.mobilenumber}</td>
                 <td className="member"><button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Details</Link></button></td>
                 {/* <td className="member">
@@ -39,10 +41,10 @@ const Memberlisting = ({ members }) => {
           })}
         </tbody>
       </table>
-      {/* <div>
-      <button><Link onClick={(e)=>{ history.push({pathname: '/girlslist'}) }}>Girls</Link></button>
-        <button><Link onClick={(e)=>{ history.push({pathname: '/boyslist'}) }}>Boys</Link></button>
-      </div> */}
+      <div>
+      <button><Link onClick={(e)=>{ history.push({pathname: '/girlslisting'}) }}>Girls</Link></button>
+      <button><Link onClick={(e)=>{ history.push({pathname: '/boyslistings'}) }}>Boys</Link></button>
+      </div>
     </div>
   );
 };

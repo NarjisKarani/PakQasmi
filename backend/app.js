@@ -41,22 +41,34 @@ app.get('/members', (req, res) => {
     Member.find().then((data)=>{
         // console.log(data);
         // console.log("memberlist working");
-        console.log('ok');
+        console.log('member listing');
         res.send(data);
     }).catch((err)=>{
         res.send(err.message);
     });
 });
 
-// app.get('/girlslisting', (req, res) => {
-//     Member.find({'gender': 'Female'}).then((data)=>{
-//         // console.log(data);
-//         console.log("girl's list working");
-//         res.send(data);
-//     }).catch((err)=>{
-//         res.send(err.message);
-//     });
-// });
+app.get('/girlslisting', (req, res) => {
+    Member.find({'gender': 'Female'}).then((data)=>{
+        // console.log(data);
+        console.log("girl's list working");
+        console.log('okay working')
+        res.send(data);
+    }).catch((err)=>{
+        res.send(err.message);
+    });
+});
+
+app.get('/boyslistings', (req, res) => {
+  Member.find({'gender': 'Male'}).then((data)=>{
+      // console.log(data);
+      console.log("boy's list working");
+      console.log('okay working')
+      res.send(data);
+  }).catch((err)=>{
+      res.send(err.message);
+  });
+});
   
 // app.get('/boyslistings', (req, res) => {
 //     Member.find({'gender': 'Male'}).then((data)=>{
@@ -91,8 +103,8 @@ app.post('/register', (req, res) => {
 // });
 
 // UPDATE
-app.post('/updateform', (req, res) =>{
-    Member.findByIdAndUpdate(req.body._id, 
+app.post('/updateform/:id', (req, res) =>{
+    Member.findByIdAndUpdate(req.params.id, 
       {$set: {'name': req.body.name, 
               'fathername': req.body.fathername,
               'gander': req.body.gander,
@@ -116,6 +128,7 @@ app.post('/updateform', (req, res) =>{
       }
     );
   });
+  
 
 //DELETE
 app.delete('/individualpage/:id', (req, res) => {

@@ -4,18 +4,11 @@ import { Link, useHistory } from 'react-router-dom';
 import { useState } from "react";
 // import {Link} from 'react-router-dom'
 
-const IDCard = ({members}) => {
+const IDCard = () => {
     const history = useHistory();
-    let abc = history?.location?.state[0];
-    function candidate(candidateemail) {
-        return candidateemail.email === abc?.email??'';
-    }
-    const candidatearray = [members.find(candidate)];
-    console.log(candidatearray);
   return (
       <div>
-        {candidatearray.map((member, key) => {
-        <table class="main-table" align="center" key={key}>
+        <table class="main-table" align="center">
         <tr>
             <td>
                 <table class="front-info">
@@ -33,7 +26,6 @@ const IDCard = ({members}) => {
                         <li><strong>Name:</strong></li>
                     </td> 
                     <td>
-                        {member.name}
                         <li><input class="input_custom"/></li>
                     </td>
                 </tr>
@@ -42,7 +34,6 @@ const IDCard = ({members}) => {
                         <li><strong>Father Name: </strong></li>
                     </td>
                     <td>
-                    {member.fathername}
                         <li><input class="input_custom"/></li>
                     </td>
                 </tr>
@@ -51,7 +42,6 @@ const IDCard = ({members}) => {
                         <li><strong>Registration:</strong></li>
                     </td>
                     <td>
-                    {member.registrationnumber}
                         <li><input class="input_custom"/></li>
                     </td>
                 </tr>
@@ -71,10 +61,8 @@ const IDCard = ({members}) => {
             </td>
         </tr>
     </table>
-    })}
     <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back</Link></button>
     </div>
-  );
-};
+  )};
 
 export default IDCard;
