@@ -8,6 +8,12 @@ const Memberlisting = ({ members, deleteMember }) => {
   return (
     <div className="new">
       <h1>Member Listing</h1>
+      
+      <div>
+      <button><Link onClick={(e)=>{ history.push({pathname: '/girlslisting'}) }}>Girls</Link></button>
+      <button><Link onClick={(e)=>{ history.push({pathname: '/boyslistings'}) }}>Boys</Link></button>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -51,10 +57,6 @@ const Memberlisting = ({ members, deleteMember }) => {
           })}
         </tbody>
       </table>
-      <div>
-      <button><Link onClick={(e)=>{ history.push({pathname: '/girlslisting'}) }}>Girls</Link></button>
-      <button><Link onClick={(e)=>{ history.push({pathname: '/boyslistings'}) }}>Boys</Link></button>
-      </div>
     </div>
   );
 };

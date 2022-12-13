@@ -8,6 +8,9 @@ const Girlslisting = ({ girls, deleteMember }) => {
   return (
     <div className="new">
       <h1>Girl's Listing</h1>
+      <div>
+        <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>All</Link></button>
+      </div>
       <table>
         <thead>
           <tr>
@@ -16,7 +19,6 @@ const Girlslisting = ({ girls, deleteMember }) => {
             <th>Group</th>
             <th>Mobile Number</th>
             <th>Action</th>
-            {/* <th>Click to Delete</th> */}
           </tr>
         </thead>
         <tbody>
@@ -29,37 +31,13 @@ const Girlslisting = ({ girls, deleteMember }) => {
                 <td className="member">{girl.mobilenumber}</td>
                 <td className="member">
                     <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: girl.email}]}) }}>Details</Link></button>
-                    {/* <button><Link onClick={(e)=>{
-                                            fetch(`http://localhost:8500/memberdelete/${girl._id}`,
-                                            {
-                                              mode: 'cors',
-                                              method: 'DELETE',
-                                              headers: { 'Content-Type': 'application/json' },
-                                              body: JSON.stringify(girl),
-                                            }).then(deleteMember(girl._id), (response)=>{
-                                                history.push('/girlslisting');
-                                                window.location.reload();
-                                            }).catch(err=>{
-                                              console.log(err);
-                                            })
-                                        }}>
-                                        Delete
-                                        </Link></button> */}
                 </td>
-                {/* <td className="member">
-                <Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: girl.email}]}) }}>Details</Link>
-                </td> */}
-                {/* <td className="member">
-                  <Link onClick={(e)=>{ history.push({pathname: '/girlslisting', state: [{id: user.email}]}) }}>Delete</Link>
-                </td> */}
               </tr>
             );
           })}
         </tbody>
       </table>
-      <div>
-        <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>All</Link></button>
-      </div>
+      
     </div>
   );
 };

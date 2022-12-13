@@ -8,6 +8,11 @@ const Boyslistings = ({ boys, deleteMember }) => {
   return (
     <div className="new">
       <h1>Boy's Listing</h1>
+
+      <div>
+        <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>All</Link></button>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -16,7 +21,6 @@ const Boyslistings = ({ boys, deleteMember }) => {
             <th>Group</th>
             <th>Mobile Number</th>
             <th>Action</th>
-            {/* <th>Click to Delete</th> */}
           </tr>
         </thead>
         <tbody>
@@ -29,30 +33,13 @@ const Boyslistings = ({ boys, deleteMember }) => {
                 <td className="member">{boy.mobilenumber}</td>
                 <td className="member">
                     <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: boy.email}]}) }}>Details</Link></button>
-                    {/* <button><Link onClick={(e)=>{
-                                            fetch(`http://localhost:8500/memberdelete/${boy._id}`,
-                                            {
-                                              mode: 'cors',
-                                              method: 'DELETE',
-                                              headers: { 'Content-Type': 'application/json' },
-                                              body: JSON.stringify(boy),
-                                            }).then(deleteMember(boy._id), (response)=>{
-                                                history.push('/boyslistings');
-                                                window.location.reload();
-                                            }).catch(err=>{
-                                              console.log(err);
-                                            })
-                                        }}> Delete </Link></button> */}
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      
-      <div>
-        <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>All</Link></button>
-      </div>
+
     </div>
   );
 };

@@ -9,8 +9,8 @@
 
 .new {
   background-color: #f0f0f0;
-  padding: 50px;
-  min-height: 100vh;
+  padding: 20px;
+  min-height: 50vh;
   height: auto;
   width: 100%;
   display: flex;
@@ -18,7 +18,7 @@
   align-items: center;
 }
 .new > h1 {
-    margin-bottom: 50px;    
+    margin-bottom: 10px;    
 }
 
 table {
@@ -32,7 +32,14 @@ td {
 }
 th,
 td {
-  padding: 10px 20px;
-  width: 200px;
+  padding: 5px 10px;
+  width: 50px;
   text-align: center;
+}
+button {
+  padding: 7px 12px;
+  margin: 2px 2px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
 }
