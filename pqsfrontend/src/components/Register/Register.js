@@ -13,7 +13,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const [bloodgroup, setBloodgroup] = useState("");
-  // // const [dob, setDob] = useState("");
+  const [dob, setDob] = useState("");
   const [occupation, setOccupation] = useState("");
   const [education, setEducation] = useState("");
   const [cnic, setCNIC] = useState("");
@@ -21,7 +21,7 @@ const Register = () => {
   const [mobilenumber, setMobilenumber] = useState("");
   const [registrationnumber, setRegistrationnumber] = useState("");
   const [emergencycontact, setEmergencyContact] = useState("");
-  const [emergencyrelation, setEmergencyRelation] = useState("");
+  const [emergency, setEmergency] = useState("");
   // const [image, setImage] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +43,7 @@ const Register = () => {
           onSubmit={(e)=>{
             e.preventDefault();
             // const user = {name, fathername, gender, group, email, mobilenumber, registrationnumber, address, cnic, occupation, education, bloodgroup, city, emergencycontact, emergencyrelation}
-            const user = {name, fathername, group, email, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergencyrelation}
+            const user = {name, fathername, group, email, dob, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
             console.log("user added");
             console.log(JSON.stringify(user));
             fetch(`http://localhost:8500/register`,
@@ -80,15 +80,12 @@ const Register = () => {
                 <option value="Female">Female</option>
               </select>
             </div>
-            <div className="field-block">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" className="email" onChange={(e) => setEmail(e.target.value)}/>
-            </div>
+            
 
-            {/* <div className="field-block">
+            <div className="field-block">
               <label for="dob">DOB</label>
               <input type="date" id="dob" className="dob" onChange={(e) => setDob(e.target.value)}/>
-            </div> */}
+            </div>
 
             <div className="field-block">
               <label for="group">Group</label>
@@ -100,11 +97,10 @@ const Register = () => {
                 <option value="Adult">Adult</option>
               </select>
             </div>
-
-            {/* <div className="field-block">
-                <label for="password">Password</label>
-                <input type="password" id="password" className="password" onChange={(e)=>setPasswod(e.target.value)}/>
-              </div> */}
+            <div className="field-block">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" className="email" onChange={(e) => setEmail(e.target.value)}/>
+            </div>
 
             <div className="field-block">
               <label for="mobilenumber">Mobile Number</label>
@@ -195,14 +191,15 @@ const Register = () => {
             </div>
 
             <div className="field-block">
+              <label for="emergency">Name (emergency)</label>
+              <input type="text" id="emergency" name="emergency" className="emergency" onChange={(e) => setEmergency(e.target.value)}/>
+            </div>
+
+            <div className="field-block">
               <label for="emergencycontact">Emergency Contact</label>
               <input type="number" id="emergencycontact" name="emergencycontact" className="emergencycontact" onChange={(e) => setEmergencyContact(e.target.value)}/>
             </div>
 
-            <div className="field-block">
-              <label for="emergencyrelation">Relation</label>
-              <input type="text" id="emergencyrelation" name="emergencyrelation" className="emergencyrelation" onChange={(e) => setEmergencyRelation(e.target.value)}/>
-            </div>
           </div>
           <div className="submit-btn">
             <input type="submit" value="Submit" />

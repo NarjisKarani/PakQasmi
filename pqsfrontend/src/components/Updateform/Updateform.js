@@ -16,7 +16,7 @@ const Updateform = (props) => {
   const [email, setEmail] = useState(xyz?.email??'');
   const [gender, setGender] = useState(xyz?.gender??'');
   const [bloodgroup, setBloodgroup] = useState(xyz?.bloodgroup??'');
-  // // const [dob, setDob] = useState(xyz?.dob??'');
+  const [dob, setDob] = useState(xyz?.dob??'');
   const [occupation, setOccupation] = useState(xyz?.occupation??'');
   const [education, setEducation] = useState(xyz?.education??'');
   const [cnic, setCNIC] = useState(xyz?.cnic??'');
@@ -24,7 +24,7 @@ const Updateform = (props) => {
   const [mobilenumber, setMobilenumber] = useState(xyz?.mobilenumber??'');
   const [registrationnumber, setRegistrationnumber] = useState(xyz?.registrationnumber??'');
   const [emergencycontact, setEmergencyContact] = useState(xyz?.emergencycontact??'');
-  const [emergencyrelation, setEmergencyRelation] = useState(xyz?.emergencyrelation??'');
+  const [emergency, setEmergency] = useState(xyz?.emergencyrelation??'');
   // const [image, setImage] = useState(xyz?.image??'');
 
   const [isLoading, setIsLoading] = useState(false);
@@ -45,7 +45,7 @@ const Updateform = (props) => {
         <form
           onSubmit={(e)=>{
             e.preventDefault();
-            const user = {name, fathername, group, email, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergencyrelation}
+            const user = {name, fathername, group, email, dob, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
             console.log("user added");
             console.log(JSON.stringify(user));
             fetch(`http://localhost:8500/updateform/${id}`,
@@ -82,15 +82,11 @@ const Updateform = (props) => {
                 <option value="Female">Female</option>
               </select>
             </div>
-            <div className="field-block">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" className="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            </div>
 
-            {/* <div className="field-block">
+            <div className="field-block">
               <label for="dob">DOB</label>
-              <input type="date" id="dob" className="dob" onChange={(e) => setDob(e.target.value)}/>
-            </div> */}
+              <input type="date" id="dob" className="dob" name="dob" value={dob} onChange={(e) => setDob(e.target.value)}/>
+            </div>
 
             <div className="field-block">
               <label for="group">Group</label>
@@ -101,6 +97,11 @@ const Updateform = (props) => {
                 <option value="Rover">Rover</option>
                 <option value="Adult">Adult</option>
               </select>
+            </div>
+
+            <div className="field-block">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" className="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
             </div>
 
             <div className="field-block">
@@ -172,14 +173,15 @@ const Updateform = (props) => {
             </div>
 
             <div className="field-block">
+              <label for="emergency">Name (emergency)</label>
+              <input type="text" id="emergency" value={emergency} name="emergency" className="emergency" onChange={(e) => setEmergency(e.target.value)}/>
+            </div>
+
+            <div className="field-block">
               <label for="emergencycontact">Emergency Contact</label>
               <input type="number" id="emergencycontact" value={emergencycontact} name="emergencycontact" className="emergencycontact" onChange={(e) => setEmergencyContact(e.target.value)}/>
             </div>
 
-            <div className="field-block">
-              <label for="emergencyrelation">Relation</label>
-              <input type="text" id="emergencyrelation" value={emergencyrelation} name="emergencyrelation" className="emergencyrelation" onChange={(e) => setEmergencyRelation(e.target.value)}/>
-            </div>
           </div>
           <div className="submit-btn">
             <input type="submit" value="Submit" />

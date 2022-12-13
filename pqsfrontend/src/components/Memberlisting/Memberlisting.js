@@ -22,7 +22,7 @@ const Memberlisting = ({ members, deleteMember }) => {
         </thead>
         <tbody>
           {members.map((member, key) => {
-            return (
+            return (  
               <tr key={key}>
                 <td className="member">{member.name}</td>
                 <td className="member">{member.fathername}</td>

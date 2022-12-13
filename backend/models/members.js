@@ -8,7 +8,7 @@ const MemberSchema = new Schema({
     gender: {type: String},
     email:    {type: String, validate: [isEmail, 'Enter a valid email address'], lowercase: true,},
     group: {type: String},
-    // dob: {type: Number},
+    dob: {type: Date},
     mobilenumber: {type: Number},
     registrationnumber: {type: Number},
     cnic: {type: Number},
@@ -18,7 +18,7 @@ const MemberSchema = new Schema({
     education: {type: String},
     bloodgroup: {type: String},
     emergencycontact: {type: Number},
-    emergencyrelation: {type: String},
+    emergency: {type: String},
     // image: {type: String, desc: String,
     //     img:
     //     {

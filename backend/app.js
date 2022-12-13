@@ -39,9 +39,7 @@ mongoose.connect(uri).then((result)=>{
 //READ
 app.get('/members', (req, res) => {
     Member.find().then((data)=>{
-        // console.log(data);
-        // console.log("memberlist working");
-        console.log('member listing');
+        console.log("Member's list");
         res.send(data);
     }).catch((err)=>{
         res.send(err.message);
@@ -51,8 +49,7 @@ app.get('/members', (req, res) => {
 app.get('/girlslisting', (req, res) => {
     Member.find({'gender': 'Female'}).then((data)=>{
         // console.log(data);
-        console.log("girl's list working");
-        console.log('okay working')
+        console.log("Girl's list");
         res.send(data);
     }).catch((err)=>{
         res.send(err.message);
@@ -62,29 +59,17 @@ app.get('/girlslisting', (req, res) => {
 app.get('/boyslistings', (req, res) => {
   Member.find({'gender': 'Male'}).then((data)=>{
       // console.log(data);
-      console.log("boy's list working");
-      console.log('okay working')
+      console.log("Boy's list");
       res.send(data);
   }).catch((err)=>{
       res.send(err.message);
   });
 });
-  
-// app.get('/boyslistings', (req, res) => {
-//     Member.find({'gender': 'Male'}).then((data)=>{
-//         // console.log(data);
-//         console.log("boy's list working");
-//         res.send(data);
-//     }).catch((err)=>{
-//         res.send(err.message);
-//     });
-// });
-  
 
 //CREATE
 app.post('/register', (req, res) => {
   console.log(req.body);
-  console.log("member created");
+  console.log("Created");
   Member.create(req.body).then((data)=>{
     res.send({
       error:null,
@@ -123,7 +108,7 @@ app.post('/updateform/:id', (req, res) =>{
 //DELETE
 app.delete('/memberdelete/:id', (req, res) => {
     Member.findByIdAndDelete(req.params.id).then((res)=>{
-        console.log('Delete worked');
+        console.log('Deleted');
       res.json({
         status:true,
         message:null,

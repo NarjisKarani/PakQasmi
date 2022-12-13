@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useHistory} from "react-router-dom";
+import './Dashboard.css';
 
 const Dashboard = () => {
     // const [isLoading, setIsLoading]         = useState(false);
