@@ -20,6 +20,7 @@ const MemberSchema = new Schema(
         bloodgroup: {type: String, required: true},
         emergencycontact: {type: Number},
         emergency: {type: String},
+        imagePath: {type: String},
         // image: {type: String, desc: String,
         //     img:
         //     {

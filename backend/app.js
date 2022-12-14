@@ -6,27 +6,28 @@ const bodyParser = require ('body-parser')
 
 //MODELS
 const Member = require('./models/members');
+const upload = multer({ dest: './public' })
 
 const app = express();
 const port = 8500;
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+// app.use(express.json());
 // app.use(express.static('public'));
 // app.use(bodyParser.urlencoded({ extended:false}))
-// app.use(bodyParser.json())
+app.use(bodyParser.json())
 
 //MULTER
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'public')
-  },
-  filename: function (req, file, cb) {
-    cb(nll, file.originalname);
-  }
-})
-const upload = multer({ storage: storage });
+// const storage = multer.diskStorage({
+//   destination: function(req, file, cb) {
+//     cb(null, '/public')
+//   },
+//   filename: function (req, file, cb) {
+//     cb(nll, file.originalname);
+//   }
+// })
+// const upload = multer({ storage: storage });
 
 //DATABASE
 const uri = 'mongodb+srv://user-1:NKarani@cluster0.ffupy.mongodb.net/PakQasmi?retryWrites=true&w=majority';
@@ -67,25 +68,41 @@ app.get('/boyslistings', (req, res) => {
 });
 
 //CREATE
-app.post('/register', (req, res) => {
-  // console.log(req.body);
-  console.log("Created");
-  Member.create(req.body).then((data)=>{
-    res.send({
-      error:null,
-      status:true,
-    });
-  }).catch((err)=>{
-      res.send({
-        error:true,
-        message:err.message,
-      });
-  });
-});
-// app.post('upload',upload.single('image'),(req, res)=> {
-//   console.log(JSON.stringify(req.file));
-//   res.send('ok');
+// app.post('/registera', upload.single('displayPicture'), (req, res, next) => {
+//   // console.log(req.body);
+//   console.log("Created");
+//   console.log(req.body);
+//   console.log(req.file);
+//   // Member.create(req.body).then((data)=>{
+//   //   res.send({
+//   //     error:null,
+//   //     status:true,
+//   //   });
+//   // }).catch((err)=>{
+//   //     res.send({
+//   //       error:true,
+//   //       message:err.message,
+//   //     });
+//   // });
+//   res.send('ok')
 // });
+app.post('/register', upload.single('image'), (req, res, next)=> {
+  req.body.imagePath = req.file.path
+  console.log(req.body);
+  console.log(req.file);
+  // Member.create(req.body).then((data)=>{
+  //   res.send({
+  //     error:null,
+  //     status:true,
+  //   });
+  // }).catch((err)=>{
+  //     res.send({
+  //       error:true,
+  //       message:err.message,
+  //     });
+  // });
+  res.send('ok');
+});
 
 // UPDATE
 app.post('/updateform/:id', (req, res) =>{
