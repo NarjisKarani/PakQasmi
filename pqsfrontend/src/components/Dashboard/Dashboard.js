@@ -7,7 +7,10 @@ const Dashboard = () => {
     // const history                           = useHistory();
   return (
     <div className="dashboard">
-        <div><h1>Welcome to Dashboard</h1></div>
+        <div>
+          <h1>Pak Qasmi Scout Group</h1>
+          <h3>REGISTERED BY KARACHI DISTRICT BOY SCOUTS ASSOCIATION</h3>
+        </div>
     </div>
 )};
 export default Dashboard;

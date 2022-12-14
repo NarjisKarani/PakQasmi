@@ -26,6 +26,7 @@ const Updateform = (props) => {
   const [emergencycontact, setEmergencyContact] = useState(xyz?.emergencycontact??'');
   const [emergency, setEmergency] = useState(xyz?.emergencyrelation??'');
   // const [image, setImage] = useState(xyz?.image??'');
+  // const [document, setDocument] = useState(xyz?.document??'');
 
   const [isLoading, setIsLoading] = useState(false);
   
@@ -123,6 +124,31 @@ const Updateform = (props) => {
               <label for="address">Address</label>
               <input type="text" id="address" name="address" className="address" value={address} onChange={(e) => setAddress(e.target.value)}/>
             </div>
+
+            {/* <div className="field-block">
+                <label for="image">Upload image</label>
+                <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.value)}/>
+                 <button><Link onClick={(e)=>{ 
+                  image ={image}
+                  fetch(`http://localhost:8500/upload`,
+                  {
+                      mode: 'cors',
+                      method: 'POST',
+                      enctype: 'multipart/form-data',
+                      headers: { 'Content-Type':'application/json' },
+                      // body: JSON.stringify(image),
+                  }).then((response)=>{
+                     console.log('image upload')
+                      // history.push('/');
+                      // // window.location.reload();
+                  })
+                 }}>Upload</Link></button> 
+             </div>
+
+            <div className="field-block">
+                <label for="document">Upload Document</label>
+                <input type="file" id="document" name="document" onChange={(e) => setDocument(e.target.value)}/>
+            </div> */}
 
             <div className="field-block">
               <label for="city">City</label>

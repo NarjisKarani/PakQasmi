@@ -22,7 +22,8 @@ const Register = () => {
   const [registrationnumber, setRegistrationnumber] = useState("");
   const [emergencycontact, setEmergencyContact] = useState("");
   const [emergency, setEmergency] = useState("");
-  // const [image, setImage] = useState("");
+  const [image, setImage] = useState("");
+  // const [document, setDocument] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
@@ -36,23 +37,41 @@ const Register = () => {
         </div>
       </div>
       <div class="ball">
-        <h4>REGISTERED WITH KARACHI DISTRICT BOY SCOUTS ASSOCIATION</h4>
+        <h4>REGISTERED BY KARACHI DISTRICT BOY SCOUTS ASSOCIATION</h4>
       </div>
       <div className="form-box">
         <form
           onSubmit={(e)=>{
             e.preventDefault();
-            // const user = {name, fathername, gender, group, email, mobilenumber, registrationnumber, address, cnic, occupation, education, bloodgroup, city, emergencycontact, emergencyrelation}
-            const user = {name, fathername, group, email, dob, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
+            // const user = {name, fathername, group, email, dob, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
+            const formData= new FormData();
+              formData.append("image", image); //first is input field name, second is usestate name
+              formData.append("name", name);
+              formData.append("fathername", fathername);
+              formData.append("group", group);
+              formData.append("email", email);
+              formData.append("dob", dob);
+              formData.append("bloodgroup", bloodgroup);
+              formData.append("cnic", cnic);
+              formData.append("mobilenumber", mobilenumber);
+              formData.append("gender", gender);
+              formData.append("education", education);
+              formData.append("city", city);
+              formData.append("address", address);
+              formData.append("occupation", occupation);
+              formData.append("registrationnumber", registrationnumber);
+              formData.append("emergencycontact", emergencycontact);
+              formData.append("emergency", emergency);
             console.log("user added");
-            console.log(JSON.stringify(user));
+            // console.log(JSON.stringify(user));
             fetch(`http://localhost:8500/register`,
             {
                 mode: 'cors',
                 method: 'POST',
                 enctype: 'multipart/form-data',
                 headers: { 'Content-Type':'application/json' },
-                body: JSON.stringify(user),
+                body: formData,
+                // data:formData,
             }).then((response)=>{
                 history.push('/register');
                 window.location.reload();
@@ -148,8 +167,8 @@ const Register = () => {
 
             {/* <div className="field-block">
                 <label for="image">Upload image</label>
-                <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.value)}/>
-                <button><Link onClick={(e)=>{ 
+                <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.value)}/> */}
+                {/* <button><Link onClick={(e)=>{ 
                   image ={image}
                   fetch(`http://localhost:8500/upload`,
                   {
@@ -163,7 +182,12 @@ const Register = () => {
                       // history.push('/');
                       // // window.location.reload();
                   })
-                 }}>Upload</Link></button>
+                 }}>Upload</Link></button> */}
+            {/* </div> */}
+
+            {/* <div className="field-block">
+                <label for="document">Upload Document</label>
+                <input type="file" id="document" name="document" onChange={(e) => setDocument(e.target.value)}/>
             </div> */}
 
             <div className="field-block">
