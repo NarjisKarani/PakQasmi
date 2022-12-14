@@ -123,33 +123,32 @@ app.get('/boyslistings', (req, res) => {
 //   });
 
 app.post('/register', upload.single('image'), (req, res, next)=> {
-  // console.log(req.file);
-  console.log(req.body.name);
-  // const member=new Member({
-  //   name: req.body.name,
-  //   fathername: req.body.fathername,
-  //   gender: req.body.gender,
-  //   email: req.body.email,
-  //   group: req.body.group,
-  //   bloodgroup: req.body.bloodgroup,
-  //   cnic: req.body.cnic,
-  //   dob: req.body.dob,
-  //   address: req.body.address,
-  //   education: req.body.education,
-  //   city: req.body.city,
-  //   occupation: req.body.occupation,
-  //   mobilenumber: req.body.mobilenumber,
-  //   registrationnumber: req.body.registrationnumber,
-  //   emergencycontact: req.body.emergencycontact,
-  //   emergency: req.body.emergency,
-  //   // image: req.file.filename
-  //   image: "xyz",
-  // });
-  // member.save(member).then((data)=>{
-  //   console.log("member test working" + data);
-  //   return res.send(data);
-  // })
-  res.send('ok')
+  console.log(req.file);
+  console.log(JSON.stringify(req.body));
+  const member=new Member({
+    name: req.body.name,
+    fathername: req.body.fathername,
+    gender: req.body.gender,
+    email: req.body.email,
+    group: req.body.group,
+    bloodgroup: req.body.bloodgroup,
+    cnic: req.body.cnic,
+    dob: req.body.dob,
+    address: req.body.address,
+    education: req.body.education,
+    city: req.body.city,
+    occupation: req.body.occupation,
+    mobilenumber: req.body.mobilenumber,
+    registrationnumber: req.body.registrationnumber,
+    emergencycontact: req.body.emergencycontact,
+    emergency: req.body.emergency,
+    imagepath: req.file.path
+  });
+  member.save(member).then((data)=>{
+    console.log("member test working" + data);
+    return res.send(data);
+  })
+  // res.send('ok')
 });
 
 // UPDATE

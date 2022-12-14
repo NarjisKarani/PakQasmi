@@ -10,7 +10,7 @@ import Register from './Register/Register';
 import Updateform from './Updateform/Updateform';
 
 //Members
-import Individualpage from './Individualpage/Individualpage';
+import Individualpage from './Individualpage/individualpage';
 import IDCard from './IDCard/IDCard';
 import Card from './IDCard/Card';
 

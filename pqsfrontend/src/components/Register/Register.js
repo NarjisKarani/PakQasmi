@@ -1,6 +1,7 @@
 import { useState } from "react"; 
 import { Link, useHistory } from 'react-router-dom';
 import "./Register.css";
+import axios from "axios"
 // import Url from '../../Url';
 // import pqslogo from '../pqslogo.png';
 import './Register.css';
@@ -22,11 +23,12 @@ const Register = () => {
   const [registrationnumber, setRegistrationnumber] = useState("");
   const [emergencycontact, setEmergencyContact] = useState("");
   const [emergency, setEmergency] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   // const [document, setDocument] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
+  const UPLOAD_URL = 'http://localhost:8500/register';
   return (
     <div className="applyjob">
       <div>
@@ -62,20 +64,30 @@ const Register = () => {
               formData.append("registrationnumber", registrationnumber);
               formData.append("emergencycontact", emergencycontact);
               formData.append("emergency", emergency);
-            console.log("user added");
-            // console.log(JSON.stringify(user));
-            fetch(`http://localhost:8500/register`,
-            {
-                mode: 'cors',
-                method: 'POST',
-                enctype: 'multipart/form-data',
-                headers: { 'Content-Type':'application/json' },
-                body: formData,
-                // data:formData,
-            }).then((response)=>{
-                history.push('/register');
-                window.location.reload();
-            })
+              // Display the values
+              for (const value of formData.values()) {
+                console.log(value);
+              }
+
+              axios
+              .post(UPLOAD_URL, formData)
+              .then((res) => {
+                alert("Record Inserted Successfully!!");
+              })
+              .catch((err) => alert("File Upload Error"));
+            // console.log(JSON.stringify(formData));
+            // fetch(`http://localhost:8500/register`,
+            // {
+            //     mode: 'cors',
+            //     method: 'POST',
+            //     enctype: 'multipart/form-data',
+            //     headers: { 'Content-Type':'application/json' },
+            //     body: formData,
+            //     // data:formData,
+            // }).then((response)=>{
+            //     history.push('/register');
+            //     // window.location.reload();
+            // })
         }}
         >
           <div class="book">
@@ -165,9 +177,9 @@ const Register = () => {
               </select>
             </div> 
 
-            {/* <div className="field-block">
+            <div className="field-block">
                 <label for="image">Upload image</label>
-                <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.value)}/> */}
+                <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.files[0])}/>
                 {/* <button><Link onClick={(e)=>{ 
                   image ={image}
                   fetch(`http://localhost:8500/upload`,
@@ -183,7 +195,7 @@ const Register = () => {
                       // // window.location.reload();
                   })
                  }}>Upload</Link></button> */}
-            {/* </div> */}
+            </div>
 
             {/* <div className="field-block">
                 <label for="document">Upload Document</label>

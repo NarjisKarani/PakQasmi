@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from "react";
-import './Individualpage.css';
+import './individualpage.css';
 
 const Individualpage = ({members}) => {
   const history = useHistory();
