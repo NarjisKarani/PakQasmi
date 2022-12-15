@@ -1,5 +1,5 @@
 import './IDCard.css';
-// import pqslogo from '../pqslogo.png';
+import pqslogo from './pqslogo.png';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from "react";
 // import {Link} from 'react-router-dom'
@@ -19,10 +19,10 @@ const IDCard = ({members}) => {
        return <tr>
             <td>
                 <table className="front-info">
-				<tr><td colspan="2">
-                    {/* <img className="center fixedwidth" align="center" border="0" src={pqslogo} alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;margin: auto;width: 50%;max-width: 280px" width="280"/> */}
+				{/* <tr><td colspan="2">
+                    <img className="center fixedwidth" align="center" border="0" src={pqslogo} alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;margin: auto;width: 50%;max-width: 280px" width="280"/>
                 </td>
-                </tr>
+                </tr> */}
                 {/* <tr>
                     <td colspan="2" className="heading" style="padding-left: 0px;height: 42px; padding:30px 0">
                         <li style="width: 115px;height: 130px;border: 2px; solid #a3a3a3;margin: auto;"></li>
@@ -60,17 +60,18 @@ const IDCard = ({members}) => {
                         <li><input className="input_custom"/><br/><p className="signature">Registered Stamp</p></li>
                     </td>
                 </tr>
-                <tr>
+                {/* <tr>
                     <td>
                     </td>
-                </tr>
+                </tr> */}
                 </table>
             </td>
+            {/* <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Back</Link></button> */}
         </tr>
-    
+        
     })}
     </table>
-    <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back</Link></button>
+    <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back to listing</Link></button>
     {/* <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Back</Link></button> */}
    
     </div>

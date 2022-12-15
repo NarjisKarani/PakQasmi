@@ -40,7 +40,7 @@ mongoose.connect(uri).then((result)=>{
 //READ
 app.get('/members', (req, res) => {
     Member.find().then((data)=>{
-        console.log("Member's list");
+        // console.log("Member's list");
         res.send(data);
     }).catch((err)=>{
         res.send(err.message);
@@ -105,9 +105,7 @@ app.get('/boyslistings', (req, res) => {
 // });
 
 // app.post('/register', (req, res)=> {
-//     // req.body.imagePath = req.file.path
 //     console.log(req.body);
-//     // console.log(req.file);
 //     Member.create(req.body).then((data)=>{
 //       res.send({
 //         error:null,
@@ -119,7 +117,6 @@ app.get('/boyslistings', (req, res) => {
 //           message:err.message,
 //         });
 //     });
-//     // res.send('ok');
 //   });
 
 app.post('/register', upload.single('image'), (req, res, next)=> {

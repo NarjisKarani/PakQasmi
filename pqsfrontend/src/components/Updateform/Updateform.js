@@ -24,7 +24,8 @@ const Updateform = (props) => {
   const [mobilenumber, setMobilenumber] = useState(xyz?.mobilenumber??'');
   const [registrationnumber, setRegistrationnumber] = useState(xyz?.registrationnumber??'');
   const [emergencycontact, setEmergencyContact] = useState(xyz?.emergencycontact??'');
-  const [emergency, setEmergency] = useState(xyz?.emergencyrelation??'');
+  const [emergency, setEmergency] = useState(xyz?.emergency??'');
+  const [comments, setComments] = useState(xyz?.comments??'');
   // const [image, setImage] = useState(xyz?.image??'');
   // const [document, setDocument] = useState(xyz?.document??'');
 
@@ -46,7 +47,7 @@ const Updateform = (props) => {
         <form
           onSubmit={(e)=>{
             e.preventDefault();
-            const user = {name, fathername, group, email, dob, mobilenumber, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
+            const user = {name, fathername, group, email, dob, mobilenumber, gender, comments, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
             console.log("user added");
             console.log(JSON.stringify(user));
             fetch(`http://localhost:8500/updateform/${id}`,
@@ -206,6 +207,11 @@ const Updateform = (props) => {
             <div className="field-block">
               <label for="emergencycontact">Emergency Contact Number</label>
               <input type="number" id="emergencycontact" value={emergencycontact} name="emergencycontact" className="emergencycontact" onChange={(e) => setEmergencyContact(e.target.value)}/>
+            </div>
+
+            <div className="field-block">
+              <label for="comments">Comments</label>
+              <input type="textarea" id="comments" name="comments" value={comments} className="comments" onChange={(e) => setComments(e.target.value)}/>
             </div>
 
           </div>

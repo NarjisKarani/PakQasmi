@@ -13,6 +13,7 @@ import Updateform from './Updateform/Updateform';
 import Individualpage from './Individualpage/individualpage';
 import IDCard from './IDCard/IDCard';
 import Card from './IDCard/Card';
+// import Back from './IDCard/Back';
 
 //Listings
 import Memberlisting from './Memberlisting/Memberlisting';
@@ -78,6 +79,9 @@ function App() {
               <Route exact path="/card">
                 {members && <Card members={members}/>}
               </Route>
+              {/* <Route exact path="/back">
+                {members && <Back members={members}/>}
+              </Route> */}
   
               <Route path="*">
                 <div>Page not found. Go back to <Link to="/">Dashboard</Link></div>

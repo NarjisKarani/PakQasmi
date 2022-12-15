@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from "react";
-import './individualpage.css';
+import './Individualpage.css';
 
 const Individualpage = ({members}) => {
   const history = useHistory();
@@ -80,11 +80,15 @@ const Individualpage = ({members}) => {
               <th className="member">Contact (emergency)</th>
               <td className="member">{member.emergencycontact}</td>
             </tr>
+            <tr>
+              <th className="member">Comments</th>
+              <td className="member">{member.comments}</td>
+            </tr>
           </table>
           
           <div>
-            <button><Link onClick={(e)=>{ history.push({pathname: '/IDCard', state: [{email: member.email}]}) }}>Generate ID Card</Link></button>
-            <button><Link onClick={(e)=>{ history.push({pathname: '/card', state: [{email: member.email}]}) }}>Card</Link></button>
+            <button><Link onClick={(e)=>{ history.push({pathname: '/IDCard', state: [{email: member.email}]}) }}>Card</Link></button>
+            <button><Link onClick={(e)=>{ history.push({pathname: '/card', state: [{email: member.email}]}) }}>Generate ID Card</Link></button>
             <button><Link onClick={(e)=>{ history.push({pathname: '/updateform', state: [{ 
                                                               id: member._id, 
                                                               name: member.name,
@@ -103,6 +107,7 @@ const Individualpage = ({members}) => {
                                                               bloodgroup: member.bloodgroup,
                                                               emergencycontact: member.emergencycontact,
                                                               emergency: member.emergency,
+                                                              comments: member.comments,
                                                               }]}) }}>Update</Link></button>
             <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back to listing</Link></button>
           </div>
