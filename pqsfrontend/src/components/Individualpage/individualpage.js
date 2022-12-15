@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from "react";
-import './individualpage.css';
+import './Individualpage.css';
 
 const Individualpage = ({members}) => {
   const history = useHistory();
@@ -12,9 +12,10 @@ const Individualpage = ({members}) => {
   console.log(personarray);
   return (
     <div className="Individualpage">
-        <h2 className='cdh1'>Individual Data</h2>
+        
         {personarray.map((member, key) => {
         return <div key={key} className="new">
+          <h2 className='cdh1'>Individual Data</h2>
         <table>
             <tr>
                 <th className="member">Name</th>

@@ -108,7 +108,7 @@ const Updateform = (props) => {
 
             <div className="field-block">
               <label for="mobilenumber">Mobile Number</label>
-              <input type="number" id="mobilenumber" name="mobilenumber" value={mobilenumber} className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
+              <input type="number" id="mobilenumber" name="mobilenumber" pattern="[0-9]{11}" placeholder="Add exactly 11 number (0300 0000000)" min="10" max="12" value={mobilenumber} className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
             </div>
 
             <div className="field-block">
@@ -118,7 +118,7 @@ const Updateform = (props) => {
 
             <div className="field-block">
               <label for="cnic">CNIC Number</label>
-              <input type="number" id="cnic" name="cnic" className="cnic" value={cnic} onChange={(e) => setCNIC(e.target.value)}/>
+              <input type="number" id="cnic" name="cnic" placeholder="Exact 13 digits" min="12" max="14" pattern="[0-9]{13}" className="cnic" value={cnic} onChange={(e) => setCNIC(e.target.value)}/>
             </div>
 
             <div className="field-block">
@@ -191,7 +191,7 @@ const Updateform = (props) => {
 
             <div className="field-block">
               <label for="emergencycontact">Emergency Contact Number</label>
-              <input type="number" id="emergencycontact" value={emergencycontact} name="emergencycontact" className="emergencycontact" onChange={(e) => setEmergencyContact(e.target.value)}/>
+              <input type="number" id="emergencycontact" value={emergencycontact} name="emergencycontact" pattern="[0-9]{11}" placeholder="Add exactly 11 number (0300 0000000)" min="10" max="12" className="emergencycontact" onChange={(e) => setEmergencyContact(e.target.value)}/>
             </div>
 
             <div className="field-block">

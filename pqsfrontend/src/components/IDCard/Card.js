@@ -75,9 +75,15 @@ const IDCard = ({members}) => {
                         <li><input className="input_custom"/><br/><p className="signature">Registered Stamp</p></li>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                    <button><Link onClick={(e)=>{ history.push({pathname: '/individualpage', state: [{email: member.email}]}) }}>Back</Link></button>
+                    </td>
+                </tr>   
                 </table>
             </td>
         </tr>
+        
     
     })}
     </table>
