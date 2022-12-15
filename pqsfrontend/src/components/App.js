@@ -13,6 +13,7 @@ import Updateform from './Updateform/Updateform';
 import Individualpage from './Individualpage/individualpage';
 import IDCard from './IDCard/IDCard';
 import Card from './IDCard/Card';
+import NewCard from './IDCard/NewCard';
 // import Back from './IDCard/Back';
 
 //Listings
@@ -78,6 +79,9 @@ function App() {
               </Route>
               <Route exact path="/card">
                 {members && <Card members={members}/>}
+              </Route>
+              <Route exact path="/newcard">
+                {members && <NewCard members={members}/>}
               </Route>
               {/* <Route exact path="/back">
                 {members && <Back members={members}/>}

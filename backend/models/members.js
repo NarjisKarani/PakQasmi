@@ -10,7 +10,7 @@ const MemberSchema = new Schema(
         email:    {type: String, required: true, validate: [isEmail, 'Enter a valid email address'], lowercase: true,},
         group: {type: String, required: true},
         dob: {type: Date, required: true},
-        mobilenumber: {type: Number, required: true, min:10, max: 12},
+        mobilenumber: {type: Number, required: true},
         registrationnumber: {type: Number},
         cnic: {type: Number, required: true},
         address: {type: String, required: true},
@@ -20,7 +20,8 @@ const MemberSchema = new Schema(
         bloodgroup: {type: String, required: true},
         emergencycontact: {type: Number, required: true},
         emergency: {type: String, required: true},
-        comments: {type: String},
+        remarks: {type: String},
+        imagepath: {type: String},
         // imagepath: {type: String}
         // imagePath: {type: String},
         // documentPath: {type: String},

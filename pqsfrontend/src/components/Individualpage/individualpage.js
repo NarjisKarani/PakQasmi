@@ -65,6 +65,10 @@ const Individualpage = ({members}) => {
                 <td className="member">{member.city}</td>
             </tr>
             <tr>
+                <th className="member">Image</th>
+                <td className="member">{member.imagepath}</td>
+            </tr>
+            <tr>
               <th className="member">Education</th>
               <td className="member">{member.education}</td>
             </tr>
@@ -81,8 +85,8 @@ const Individualpage = ({members}) => {
               <td className="member">{member.emergencycontact}</td>
             </tr>
             <tr>
-              <th className="member">Comments</th>
-              <td className="member">{member.comments}</td>
+              <th className="member">Comments/Remarks</th>
+              <td className="member">{member.remarks}</td>
             </tr>
           </table>
           
@@ -107,7 +111,7 @@ const Individualpage = ({members}) => {
                                                               bloodgroup: member.bloodgroup,
                                                               emergencycontact: member.emergencycontact,
                                                               emergency: member.emergency,
-                                                              comments: member.comments,
+                                                              remarks: member.remarks,
                                                               }]}) }}>Update</Link></button>
             <button><Link onClick={(e)=>{ history.push({pathname: '/members'}) }}>Back to listing</Link></button>
           </div>

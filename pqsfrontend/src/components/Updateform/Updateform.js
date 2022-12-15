@@ -25,7 +25,7 @@ const Updateform = (props) => {
   const [registrationnumber, setRegistrationnumber] = useState(xyz?.registrationnumber??'');
   const [emergencycontact, setEmergencyContact] = useState(xyz?.emergencycontact??'');
   const [emergency, setEmergency] = useState(xyz?.emergency??'');
-  const [comments, setComments] = useState(xyz?.comments??'');
+  const [remarks, setRemarks] = useState(xyz?.remarks??'');
   // const [image, setImage] = useState(xyz?.image??'');
   // const [document, setDocument] = useState(xyz?.document??'');
 
@@ -47,7 +47,7 @@ const Updateform = (props) => {
         <form
           onSubmit={(e)=>{
             e.preventDefault();
-            const user = {name, fathername, group, email, dob, mobilenumber, gender, comments, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
+            const user = {name, fathername, group, email, dob, mobilenumber, gender, remarks, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
             console.log("user added");
             console.log(JSON.stringify(user));
             fetch(`http://localhost:8500/updateform/${id}`,
@@ -129,21 +129,6 @@ const Updateform = (props) => {
             {/* <div className="field-block">
                 <label for="image">Upload image</label>
                 <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.value)}/>
-                 <button><Link onClick={(e)=>{ 
-                  image ={image}
-                  fetch(`http://localhost:8500/upload`,
-                  {
-                      mode: 'cors',
-                      method: 'POST',
-                      enctype: 'multipart/form-data',
-                      headers: { 'Content-Type':'application/json' },
-                      // body: JSON.stringify(image),
-                  }).then((response)=>{
-                     console.log('image upload')
-                      // history.push('/');
-                      // // window.location.reload();
-                  })
-                 }}>Upload</Link></button> 
              </div>
 
             <div className="field-block">
@@ -210,8 +195,8 @@ const Updateform = (props) => {
             </div>
 
             <div className="field-block">
-              <label for="comments">Comments</label>
-              <input type="textarea" id="comments" name="comments" value={comments} className="comments" onChange={(e) => setComments(e.target.value)}/>
+              <label for="remarks">Comments/Remarks</label>
+              <input type="textarea" id="remarks" name="remarks" value={remarks} className="remarks" onChange={(e) => setRemarks(e.target.value)}/>
             </div>
 
           </div>

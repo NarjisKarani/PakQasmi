@@ -23,7 +23,7 @@ const Register = () => {
   const [registrationnumber, setRegistrationnumber] = useState("");
   const [emergencycontact, setEmergencyContact] = useState("");
   const [emergency, setEmergency] = useState("");
-  const [comments, setComments] = useState("");
+  const [remarks, setRemarks] = useState("");
   const [image, setImage] = useState(null);
   // const [document, setDocument] = useState("");
 
@@ -46,7 +46,7 @@ const Register = () => {
         <form
           onSubmit={(e)=>{
             e.preventDefault();
-            // const user = {name, fathername, group, email, dob, mobilenumber, comments, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
+            // const user = {name, fathername, group, email, dob, mobilenumber, remarks, gender, registrationnumber, cnic, occupation, education, bloodgroup, city, address, emergencycontact, emergency}
             const formData= new FormData();
               formData.append("image", image); //first is input field name, second is usestate name
               formData.append("name", name);
@@ -65,6 +65,7 @@ const Register = () => {
               formData.append("registrationnumber", registrationnumber);
               formData.append("emergencycontact", emergencycontact);
               formData.append("emergency", emergency);
+              formData.append("remarks", remarks);
               // Display the values
               for (const value of formData.values()) {
                 console.log(value);
@@ -139,7 +140,7 @@ const Register = () => {
 
             <div className="field-block">
               <label for="mobilenumber">Mobile Number</label>
-              <input type="number" pattern="[0-9]{11}" min="1" max="5" placeholder="03000000000" id="mobilenumber" name="mobilenumber" className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
+              <input type="number" pattern="[0-9]{11}" placeholder="03000000000" id="mobilenumber" name="mobilenumber" className="mobilenumber" onChange={(e) => setMobilenumber(e.target.value)}/>
             </div>
 
             {/* <div className="field-block">
@@ -183,21 +184,6 @@ const Register = () => {
             <div className="field-block">
                 <label for="image">Upload image</label>
                 <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.files[0])}/>
-                {/* <button><Link onClick={(e)=>{ 
-                  image ={image}
-                  fetch(`http://localhost:8500/upload`,
-                  {
-                      mode: 'cors',
-                      method: 'POST',
-                      enctype: 'multipart/form-data',
-                      headers: { 'Content-Type':'application/json' },
-                      // body: JSON.stringify(image),
-                  }).then((response)=>{
-                     console.log('image upload')
-                      // history.push('/');
-                      // // window.location.reload();
-                  })
-                 }}>Upload</Link></button> */}
             </div>
 
             {/* <div className="field-block">
@@ -241,8 +227,8 @@ const Register = () => {
             </div>
 
             <div className="field-block">
-              <label for="comments">Comments</label>
-              <input type="textarea" id="comments" name="comments" value={comments} className="comments" onChange={(e) => setComments(e.target.value)}/>
+              <label for="remarks">Comments/Remarks</label>
+              <input type="textarea" id="remarks" name="remarks" value={remarks} className="remarks" onChange={(e) => setRemarks(e.target.value)}/>
             </div>
 
           </div>

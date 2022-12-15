@@ -68,24 +68,8 @@ app.get('/boyslistings', (req, res) => {
 });
 
 //CREATE
-// app.post('/registera', upload.single('displayPicture'), (req, res, next) => {
-//   // console.log(req.body);
-//   console.log("Created");
-//   console.log(req.body);
-//   console.log(req.file);
-//   // Member.create(req.body).then((data)=>{
-//   //   res.send({
-//   //     error:null,
-//   //     status:true,
-//   //   });
-//   // }).catch((err)=>{
-//   //     res.send({
-//   //       error:true,
-//   //       message:err.message,
-//   //     });
-//   // });
-//   res.send('ok')
-// });
+
+//Image try
 // app.post('/register', upload.single('image'), (req, res, next)=> {
 //   req.body.imagePath = req.file.path
 //   console.log(req.body);
@@ -104,6 +88,7 @@ app.get('/boyslistings', (req, res) => {
 //   // res.send('ok');
 // });
 
+//Only form 
 // app.post('/register', (req, res)=> {
 //     console.log(req.body);
 //     Member.create(req.body).then((data)=>{
@@ -120,6 +105,9 @@ app.get('/boyslistings', (req, res) => {
 //   });
 
 app.post('/register', upload.single('image'), (req, res, next)=> {
+  // console.log(req.file);
+  console.log(req.body.name);
+  res.send('ok')
   console.log(req.file);
   console.log(JSON.stringify(req.body));
   const member=new Member({
@@ -139,6 +127,7 @@ app.post('/register', upload.single('image'), (req, res, next)=> {
     registrationnumber: req.body.registrationnumber,
     emergencycontact: req.body.emergencycontact,
     emergency: req.body.emergency,
+    remarks: req.body.remarks,
     imagepath: req.file.path
   });
   member.save(member).then((data)=>{
@@ -147,6 +136,7 @@ app.post('/register', upload.single('image'), (req, res, next)=> {
   })
   // res.send('ok')
 });
+
 
 // UPDATE
 app.post('/updateform/:id', (req, res) =>{
