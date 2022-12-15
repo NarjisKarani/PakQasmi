@@ -24,7 +24,7 @@ const Register = () => {
   const [emergencycontact, setEmergencyContact] = useState("");
   const [emergency, setEmergency] = useState("");
   const [comments, setComments] = useState("");
-  // const [image, setImage] = useState(null);
+  const [image, setImage] = useState(null);
   // const [document, setDocument] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
